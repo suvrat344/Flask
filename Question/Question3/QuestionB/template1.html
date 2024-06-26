@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title == "Student" or title == "Course" %}
+    <title>
+      {{ title }} Data
+    </title>
+    {% else %}
+      <title>
+        Something Went wrong
+      </title>
+    {% endif %}
+  </head>
+  <body>
+
+      {% if title == "Student" %}
+        <!-- Section for displaying student details -->
+        <h1>{{ title }} Details</h1>
+        <table border = "1px">
+          <tr>
+            {%- for data in header %}
+              <!-- Render table headers -->
+              <th>{{ data }}</th>
+            {%- endfor %}
+          </tr>
+
+          {% set ns = namespace(total=0) %}
+          {%- for row in data %}
+              {{ row }}
+            {%- if student_id == row["Student id"] %}
+                {% set ns.total = ns.total + row["Marks"] %}
+          <!-- Display total marks for the student -->
+                <tr>
+                  <td>{{ row["Student id"] }}</td>
+                  <td>{{ row["Course id"] }}</td>
+                  <td>{{ row["Marks"] }}</td>
+                </tr>
+            {%- endif %}
+          {%- endfor %}
+          <tr>
+            <td colspan="2" align="center">Total Marks</td>
+            <td>{{ ns.total }}</td>
+          </tr>
+        </table>
+
+
+      {% elif title == "Course" %}
+        <!-- Section for displaying course details -->
+        <h1>{{ title }} Details</h1>
+        <table border = "1px">
+          <tr>
+            <th>Average Marks</th>
+            <th>Maximum Marks</th>
+          </tr>
+      
+          {% set ns1 = namespace(maximum = 0) %}
+          {% set ns2 = namespace(total = 0) %}
+          {% set ns3 = namespace(counter = 0) %}
+
+          {% for row in data %}
+            <!-- Iterate through each element for the given course -->
+            {% if row["Course id"] == course_id %}
+              <!-- Accumulate total marks and count elements -->
+              {% set ns2.total = ns2.total + row["Marks"] %}
+              {% set ns3.counter = ns3.counter + 1 %}
+              <!-- Determine maximum marks -->
+              {% if ns1.maximum < row["Marks"] %}
+                {% set ns1.maximum = row["Marks"] %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <!-- Display average and maximum marks for the course -->
+          <tr>
+            <td> {{ ns2.total / ns3.counter }} </td>
+            <td> {{ ns1.maximum }} </td>
+          </tr>
+        </table>
+        <img src="course.jpg" alt="unable to show">
+        
+      <!-- Section for handling wrong inputs -->
+      {% else %}
+        <h1>Wrong Inputs</h1>
+        <p>Something went wrong</p>
+      {% endif %}
+
+  </body>
+</html>
