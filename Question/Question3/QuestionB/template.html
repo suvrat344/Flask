@@ -14,11 +14,13 @@
   <body>
 
       {% if title == "Student" %}
+
         <!-- Section for displaying student details -->
         <h1>{{ title }} Details</h1>
         <table border = "1px">
           <tr>
             {%- for data in header %}
+            
               <!-- Render table headers -->
               <th>{{ data }}</th>
             {%- endfor %}
@@ -83,6 +85,7 @@
           {% endfor %}
         </table>
         <img src="course.jpg" alt="unable to show">
+
       <!-- Section for handling wrong inputs -->
       {% else %}
         <h1>Wrong Inputs</h1>
