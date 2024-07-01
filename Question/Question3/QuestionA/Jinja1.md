@@ -1,4 +1,4 @@
-# Creating HTML files with Jinja
+## Creating HTML files with Jinja
 
 Learners will be given a data set in the form of a python array. The data consists of product information like, *product_id, Product_Name, type* and *producer* which is to be retrieved and organized. 
 
