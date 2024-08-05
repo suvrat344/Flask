@@ -73,7 +73,7 @@ elif(sys.argv[1] == "-c" and IsValid(sys.argv[1],sys.argv[2],data)):
   with open("output.html","w") as file3:
     file3.write(output)
 
-# Handle invalid arguments or IDs 
+# Handle invalid arguments or ID
 else:
   # Render the template for wrong inputs
   output = template.render(title = "Wrong")
