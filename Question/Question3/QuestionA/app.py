@@ -1,5 +1,7 @@
 from jinja2 import Template
 
+
+# List of product dictionaries
 Products = [
   {'product_id':'101', 'prod_name':'Legion', 'type':'Laptop', 'producer':'Lenovo'},
   {'product_id':'102', 'prod_name':'S21pro', 'type':'Cellphone', 'producer':'Samsung'},
@@ -15,12 +17,20 @@ Products = [
   {'product_id':'112', 'prod_name':'A7000', 'type':'Cellphone', 'producer':'Lenovo'}  
 ]
 
+
+# Open and read the Jinja2 template file
 file = open("template.html","r")
 temp = file.read()
 
+
+# Create a Template object
 made_temp = Template(temp)
+
+# Render the template with the Products data
 output = made_temp.render(Products = Products)
 
+
+# Write the rendered HTML to the output file
 File = open("index.html","w")
 File.write(output)
 File.close()
