@@ -1,7 +1,7 @@
 from jinja2 import Template
 
 
-# List of product dictionaries
+# List of products dictionaries
 Products = [
   {'product_id':'101', 'prod_name':'Legion', 'type':'Laptop', 'producer':'Lenovo'},
   {'product_id':'102', 'prod_name':'S21pro', 'type':'Cellphone', 'producer':'Samsung'},
