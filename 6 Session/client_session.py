@@ -9,7 +9,6 @@ app.config["SECRET_KEY"] = "secret_key"
 def home():
   return render_template("home.html",title="Home")
 
-
 @app.route("/about")
 def about():
   if "user_name" not in session:
