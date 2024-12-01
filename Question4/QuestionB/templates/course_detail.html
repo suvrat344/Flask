@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course Data</title>
+  <head>
+
+  <body>
+    <h1>Course Details</h1>
+    <table border = 1 id = "course-details-table">
+      <tr>
+        <th>Average Marks</th>
+        <th>Maximum Marks</th>
+      </tr>
+      <tr>
+        <td>{{average_marks}}</td>
+        <td>{{maximum_marks}}</td>
+      </tr>
+    </table>
+    <div>
+      <img src="{{ url_for('static', filename='course.jpg') }}" width = "400px" height = "400px">
+    </div>
+    <br>
+    <a href = "/">Go Back</a>
+  </body>
+</html>
